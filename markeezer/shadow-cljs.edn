@@ -10,4 +10,6 @@
  :dev-http {8080 "public"}
  :builds
  {:frontend {:target :browser
+             :modules {:main {:init-fn main/init}}}
+  :release  {:target :browser
              :modules {:main {:init-fn main/init}}}}}
