@@ -2,7 +2,8 @@
   (:require [uix.core :refer [defui $]] ;uix is a wrapper over reactjs
             [uix.dom]
             [refx.alpha :as refx]
-            [markov :as markov]))
+            [markov :as markov]
+            [clojure.string :as string]))
 
 
 ;Event that initializes the DB
@@ -138,7 +139,7 @@
     ($ :div {:style {:margin-top "30px"
                      :margin-bottom "10px"
                      :max-width "600px"
-                     :min-width "400px"}}
+                     :min-width "500px"}}
        (cond (= style "canada-2017")
              ($ :div {:style {:background-color "black"
                               :color "white"}}
@@ -153,7 +154,28 @@
                                  :text-align "center"}} song))
                 ($ :div {:style {:height "15px"}})) 
              (= style "pre-blue")
-             ($ :div "pre-blue")
+             ($ :div {:style {:background-color "white"
+                              :padding "5px"
+                              :font-family "monospace"}}
+                ($ :div.rotated
+                   ($ :p {:style {:font-size 50
+                                  :margin-bottom "-10px"}}"acoustic night with")
+                   ($ :p {:style {:font-size 50
+                                  :margin-top 0
+                                  :margin-bottom "-10px"}}
+                      ($ :u "w")
+                      " "
+                      ($ :u "e")
+                      " "
+                      ($ :u "e")
+                      " "
+                      ($ :u "z")
+                      " "
+                      ($ :u "e")
+                      " "
+                      ($ :u "r"))
+                   (for [[idx song] (map-indexed (fn [idx song] [idx song]) setlist)]
+                     ($ :p {:key idx} (string/lower-case song)))))
              (= style "feels-like-summer")
              ($ :div.feelsbg
                 ($ :div.center {:style {:width 300

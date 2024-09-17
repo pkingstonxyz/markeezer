@@ -63,6 +63,7 @@
 
 (def generated-lists (repeatedly 1000 #(create-setlist ["Buddy holly"] 100)))
 (map count generated-lists)
-(doseq [l (nth generated-lists 2)]
-  (println l))
+(nth generated-lists 10)
+#_(doseq [l (nth generated-lists 2)]
+   (println l))
   
