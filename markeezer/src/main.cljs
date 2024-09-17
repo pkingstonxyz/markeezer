@@ -209,6 +209,26 @@
                                  :color (if (even? idx) "red" "white")}} song))
                 ($ :div {:style {:height 10}}))))))
      
+(defui styles-info []
+  (let [style (refx/use-sub [:style])]
+    (cond (= style "pre-blue")
+          ($ :div.pure-g
+             ($ :div.pure-u-1-3
+                ($ :img.pure-img {:src "https://www.weezerpedia.com/w/images/thumb/5/50/1992-05-21-acoustic_flyer.jpg/400px-1992-05-21-acoustic_flyer.jpg"}))
+             ($ :div.pure-u-2-3
+                ($ :p.leftpad "This style is based on a 1992 concert flyer where my personal favorite song Only In Dreams was debuted. ")))
+          (= style "feels-like-summer")
+          ($ :div.pure-g
+             ($ :div.pure-u-1-3
+                ($ :img.pure-img {:src "https://www.weezerpedia.com/w/images/thumb/0/04/Feels_Like_Summer_Tour_Poster.jpg/500px-Feels_Like_Summer_Tour_Poster.jpg"}))
+             ($ :div.pure-u-2-3
+                ($ :p.leftpad "This is the tour poster for the Feels Like Summer Tour which was a European tour to promote their album Pacific Daydream.")))
+          (= style "canada-2017")
+          ($ :div.pure-g
+             ($ :div.pure-u-1-3
+                ($ :img.pure-img {:src "https://www.weezerpedia.com/w/images/4/40/Canda_Tour_2017_Poster.jpg"}))
+             ($ :div.pure-u-2-3
+                ($ :p.leftpad "Done earlier in the year to the Feels Like Summer Tour, the Canada Tour has a nice simple poster featuring the iconic weezer hand sign."))))))
 
 (defui app []
   ($ :<>
@@ -222,7 +242,8 @@
      ($ interface)
      ($ :hr)
      ($ style-controls)
-     ($ display)))
+     ($ display)
+     ($ styles-info)))
 
 ;Using a defonce because I don't want to reinit the root each time the namespace is reloaded during development
 (defonce root
