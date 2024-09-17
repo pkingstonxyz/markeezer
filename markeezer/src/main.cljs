@@ -236,6 +236,3 @@
   (refx/dispatch-sync [:init-db])
   (refx/dispatch-sync [:generate-setlist])
   (uix.dom/render-root ($ app) root))
-
-;Re-render on ns reload
-(uix.dom/render-root ($ app) root)

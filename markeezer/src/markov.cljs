@@ -4,14 +4,14 @@
 
 ;Create the set of all states
 (def all-songs
-   (sort (into #{} (->> (flatten (map second concerts/concert-list))
-                        (filter identity)
-                        (map string/capitalize);standardize the capitalization
-                        (map string/trim);standardize get rid of beginning and ending white space (looking at you (iywiiwyt)iwyt)
-                        (remove #(= "[1]" %));some gunk slipped through the cracks
-                        (remove #(= "[2]" %))
-                        (remove #(= "[3]" %))
-                        (remove #(= "[4]" %))))))
+   (into #{} (->> (flatten (map second concerts/concert-list))
+                  (filter identity)
+                  (map string/capitalize);standardize the capitalization
+                  (map string/trim);standardize get rid of beginning and ending white space (looking at you (iywiiwyt)iwyt)
+                  (remove #(= "[1]" %));some gunk slipped through the cracks
+                  (remove #(= "[2]" %))
+                  (remove #(= "[3]" %))
+                  (remove #(= "[4]" %)))))
                   
 
 ;Create the base probability table
