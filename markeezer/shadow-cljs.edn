@@ -12,4 +12,5 @@
  {:frontend {:target :browser
              :modules {:main {:init-fn main/init}}}
   :release  {:target :browser
-             :modules {:main {:init-fn main/init}}}}}
+             :modules {:main {:init-fn main/init}}
+             :output-dir "public/releasejs"}}}
