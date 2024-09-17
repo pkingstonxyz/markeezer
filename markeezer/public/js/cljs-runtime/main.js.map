@@ -1,0 +1,1 @@
+{"version":3,"sources":["main.cljs"],"mappings":";AAEA,YAAA,ZAAMA;AAAN,AACE,aAAA,NAACC","names":["main/init","js/alert"],"sourcesContent":["(ns main)\n\n(defn init []\n  (js/alert \"hi\"))\n"]}
